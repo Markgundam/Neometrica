@@ -2,15 +2,15 @@
 @script RequireComponent(AudioSource)
 
 var hasHealth : boolean = true;
-var health : int = 100;
+var health : int = 200;
 
 var hasAmmo : boolean = true;
-var ammo : int = 20;
+var ammo : int = 200;
 
 var hasProgress : boolean = true;
 var progress : int = 0;
 
-var moveSpeed : float = 10;
+var moveSpeed : float = 20;
 var rotateSpeed : float = 100;
 
 var canShoot : boolean = true;
@@ -52,7 +52,7 @@ function OnTriggerEnter(other : Collider)
 	{
 		//Debug.Log("Player collected Health");
 		Destroy(other.gameObject);
-		health = 100;
+		health = 200;
 		GameObject.Find("GuiMessage").GetComponent(GuiMessage).displayText(other.gameObject.tag + " Restored!");
 		AudioSource.PlayClipAtPoint(collectSound, transform.position);
 	}
@@ -61,7 +61,7 @@ function OnTriggerEnter(other : Collider)
 	{
 		//Debug.Log("Player collected Ammo");
 		Destroy(other.gameObject);
-		ammo = 20;
+		ammo = 200;
 		GameObject.Find("GuiMessage").GetComponent(GuiMessage).displayText(other.gameObject.tag + " Refilled!");
 		AudioSource.PlayClipAtPoint(collectSound, transform.position);
 	}
